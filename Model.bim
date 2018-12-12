@@ -148,7 +148,7 @@
             "summarizeBy": "sum"
           },
 		  {
-            "name": "AT_EXTENDED_SALE_NEW_9git",
+            "name": "AT_EXTENDED_SALE_NEW_10git",
             "dataType": "double",
             "sourceColumn": "AT_EXTENDED_SALE",
             "sourceProviderType": "Numeric",

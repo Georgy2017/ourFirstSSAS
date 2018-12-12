@@ -1,0 +1,258 @@
+{
+  "name": "gtFirstProject",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "TXDWDB",
+        "connectionString": "Provider=OraOLEDB.Oracle;Data Source=TXDWDB;Persist Security Info=true;User ID=omboro",
+        "impersonationMode": "impersonateAccount",
+        "account": "omi\\gthoma",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "Oracle"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "CUSTOMER_ACCOUNT_DIM",
+        "columns": [
+          {
+            "name": "KY_CUSTOMER_ACCOUNT",
+            "dataType": "double",
+            "sourceColumn": "KY_CUSTOMER_ACCOUNT",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ID_CUSTOMER_ACCOUNT_DIVISION",
+            "dataType": "string",
+            "sourceColumn": "ID_CUSTOMER_ACCOUNT_DIVISION",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ID_CUSTOMER_DIVISION_ACCOUNT",
+            "dataType": "string",
+            "sourceColumn": "ID_CUSTOMER_DIVISION_ACCOUNT",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ID_CUSTOMER_ACCOUNT",
+            "dataType": "string",
+            "sourceColumn": "ID_CUSTOMER_ACCOUNT",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "NM_CUSTOMER_ACCOUNT",
+            "dataType": "string",
+            "sourceColumn": "NM_CUSTOMER_ACCOUNT",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CUSTOMER_ACCOUNT_DIM",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT \"OMBORO\".\"LEO_CUSTOMER_ACCOUNT_DIM\".* FROM \"OMBORO\".\"LEO_CUSTOMER_ACCOUNT_DIM\" ",
+              "dataSource": "TXDWDB"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"OMBORO\".\"LEO_CUSTOMER_ACCOUNT_DIM\".* FROM \"OMBORO\".\"LEO_CUSTOMER_ACCOUNT_DIM\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "LEO_CUSTOMER_ACCOUNT_DIM"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "OMBORO"
+          }
+        ]
+      },
+      {
+        "name": "ORG_DIM",
+        "columns": [
+          {
+            "name": "KY_ORG",
+            "dataType": "double",
+            "sourceColumn": "KY_ORG",
+            "sourceProviderType": "VarNumeric"
+          },
+          {
+            "name": "ID_DIVISION",
+            "dataType": "string",
+            "sourceColumn": "ID_DIVISION",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ORG_DIM",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT \"OMBORO\".\"LEO_ORG_DIM\".* FROM \"OMBORO\".\"LEO_ORG_DIM\" ",
+              "dataSource": "TXDWDB"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"OMBORO\".\"LEO_ORG_DIM\".* FROM \"OMBORO\".\"LEO_ORG_DIM\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "LEO_ORG_DIM"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "OMBORO"
+          }
+        ]
+      },
+      {
+        "name": "SALES_FACTS",
+        "columns": [
+          {
+            "name": "KY_TIME",
+            "dataType": "dateTime",
+            "sourceColumn": "KY_TIME",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "KY_ORG",
+            "dataType": "double",
+            "sourceColumn": "KY_ORG",
+            "sourceProviderType": "VarNumeric"
+          },
+          {
+            "name": "KY_CUSTOMER_ACCOUNT",
+            "dataType": "double",
+            "sourceColumn": "KY_CUSTOMER_ACCOUNT",
+            "sourceProviderType": "VarNumeric"
+          },
+          {
+            "name": "AT_EXTENDED_SALE_NEW_7",
+            "dataType": "double",
+            "sourceColumn": "AT_EXTENDED_SALE",
+            "sourceProviderType": "Numeric",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "AT_EXTENDED_SALE_NEW_8",
+            "dataType": "double",
+            "sourceColumn": "AT_EXTENDED_SALE",
+            "sourceProviderType": "Numeric",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SALES_FACTS",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT \"OMBORO\".\"LEO_SALES_FACTS\".* FROM \"OMBORO\".\"LEO_SALES_FACTS\" ",
+              "dataSource": "TXDWDB"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sum of AT_EXTENDED_SALE",
+            "expression": "SUM([AT_EXTENDED_SALE])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"OMBORO\".\"LEO_SALES_FACTS\".* FROM \"OMBORO\".\"LEO_SALES_FACTS\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "LEO_SALES_FACTS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "OMBORO"
+          }
+        ]
+      },
+      {
+        "name": "TIME_DIM",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "KY_TIME",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "KY_TIME",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TIME_DIM",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT \"OMBORO\".\"LEO_TIME_DIM\".* FROM \"OMBORO\".\"LEO_TIME_DIM\" ",
+              "dataSource": "TXDWDB"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"OMBORO\".\"LEO_TIME_DIM\".* FROM \"OMBORO\".\"LEO_TIME_DIM\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "LEO_TIME_DIM"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "OMBORO"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "bb34f80e-eabc-4d50-bd06-e465905167a6",
+        "fromTable": "SALES_FACTS",
+        "fromColumn": "KY_TIME",
+        "toTable": "TIME_DIM",
+        "toColumn": "KY_TIME"
+      },
+      {
+        "name": "9b31275b-d375-44b0-9623-a7e3dc6b9724",
+        "fromTable": "SALES_FACTS",
+        "fromColumn": "KY_ORG",
+        "toTable": "ORG_DIM",
+        "toColumn": "KY_ORG"
+      },
+      {
+        "name": "13daa0fb-bd03-4ac4-8118-460d633602fc",
+        "fromTable": "SALES_FACTS",
+        "fromColumn": "KY_CUSTOMER_ACCOUNT",
+        "toTable": "CUSTOMER_ACCOUNT_DIM",
+        "toColumn": "KY_CUSTOMER_ACCOUNT"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\bin\Model.asdatabase
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\bin\Model.deploymenttargets
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\bin\Model.deploymentoptions
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\obj\x86\Development\gtFirstProject.smprojAssemblyReference.cache
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\obj\x86\Development\gtFirstProject.smproj.CoreCompileInputs.cache
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\obj\x86\Development\Model.asdatabase
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\obj\x86\Development\Model.deploymentoptions
+C:\Users\gthoma\source\repos\gtFirstProject\gtFirstProject\obj\x86\Development\Model.deploymenttargets
